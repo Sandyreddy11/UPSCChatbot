@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UPSC Chatbot</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; }
+    #chat { border:1px solid #ddd; padding:10px; max-width:600px; margin-bottom:10px; }
+    .message { margin:5px 0; }
+    .user { color:#005; }
+    .bot { color:#070; }
+  </style>
+</head>
+<body>
+  <div id="chat"></div>
+  <input id="msg" placeholder="Ask a question" size="50">
+  <button onclick="send()">Send</button>
+  <script>
+    const chat = document.getElementById('chat');
+    function addMessage(text, cls) {
+      const div = document.createElement('div');
+      div.className = 'message ' + cls;
+      div.textContent = text;
+      chat.appendChild(div);
+    }
+    async function send() {
+      const msgEl = document.getElementById('msg');
+      const msg = msgEl.value;
+      if (!msg) return;
+      addMessage('You: ' + msg, 'user');
+      msgEl.value = '';
+      const resp = await fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: msg})
+      });
+      const data = await resp.json();
+      addMessage('Bot: ' + data.answer, 'bot');
+    }
+  </script>
+</body>
+</html>
