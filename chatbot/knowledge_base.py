@@ -39,6 +39,15 @@ DEFAULT_DATA = {
         "Candidates must be citizens of India, aged 21–32 (with category "
         "relaxations), and hold at least a bachelor's degree."
     ),
+    "what is the interview stage": (
+        "The final stage of the Civil Services Examination is the Personality "
+        "Test or interview, where candidates are assessed by a panel."
+    ),
+    "how many papers in mains": (
+        "There are nine papers in the UPSC Main Exam, including essay, four "
+        "general studies papers, two optional subject papers and language "
+        "papers."
+    ),
 }
 
 kb = KnowledgeBase(DEFAULT_DATA)

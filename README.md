@@ -1,17 +1,17 @@
 # UPSCChatbot
 
-This project implements a minimal prototype of the UPSC Chatbot described in the product requirements document. It exposes a small REST API using Flask.
+This project implements a minimal prototype of the UPSC Chatbot described in the product requirements document. It exposes a small REST-style API using a lightweight builtin web framework.
 
 ## Setup
 
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Run the server:
+1. Run the server:
    ```bash
    python -m chatbot.app
+   ```
+
+2. Run the tests:
+   ```bash
+   PYTHONPATH=. pytest -q
    ```
 
 The server provides two endpoints:
