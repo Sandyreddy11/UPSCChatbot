@@ -24,3 +24,10 @@ def test_chat_unknown_question():
         data = resp.get_json()
         assert resp.status_code == 200
         assert "don't have an answer" in data["answer"].lower()
+
+
+def test_index_page():
+    with app.test_client() as client:
+        resp = client.get('/')
+        assert resp.status_code == 200
+        assert "UPSC Chatbot" in resp.get_json()
